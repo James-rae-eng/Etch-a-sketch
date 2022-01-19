@@ -1,0 +1,22 @@
+#gridContainer {
+  border: 3px solid black;
+
+  height: 400px;
+  width: 400px;
+
+  --cols: 1;
+  display: inline-grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  grid-template-rows: repeat(var(--cols), 1fr);
+  background: #eee;
+  vertical-align: top;
+  margin: 0 10px 10px 0;
+}
+
+
+.block {
+  border: 1px solid black;
+}
+
+
+

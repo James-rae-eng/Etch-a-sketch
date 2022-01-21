@@ -11,15 +11,24 @@
 <body>
     <h1>Etch-a-sketch</h1>
 
-    <div id="gridContainer">
+    <div class = "content">
+        <div class = "controls">
+            <button id="clearButton">Clear</button>
+            <button id="gridButton">Add/remove grid</button>
+            <button id="colorButton">Toggle Colour mode</button>
+            <div class="sliderBox">
+                <div class="slider">
+                    <input id="input" type="range" min="0" max="9" value="3" step="1">
+                </div>
+                <div class="gridDensity">
+                    <p>Grid density:</p>
+                    <div id="output"></div>
+                </div>
+            </div>
+        </div>
+        <div id="gridContainer"></div>
     </div>
-
-    <button id="clearButton">Clear</button>
-
-    <div class="slider">
-        <input id="input" type="range" min="0" max="9" value="3" step="1">
-    </div>
-    <div id="output"></div>
+    
 
 </body>
 </html>

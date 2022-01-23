@@ -1,5 +1,5 @@
 //slider
-let values = [36,49,64,81,100,121,144,169,196,225]; 
+let values = [100,121,144,169,196,225,256,289,324,400]; 
 let input = document.getElementById('input'),
     output = document.getElementById('output');
 
@@ -9,6 +9,7 @@ let numberOfBlocks;
 let colorToggle = 0;
 const colorButton = document.getElementById("colorButton");
 colorButton.addEventListener("click", () => {
+    greyToggle = 0;
     if (colorToggle === 0) {
         colorToggle = 1;
         generateGrid();
@@ -18,6 +19,23 @@ colorButton.addEventListener("click", () => {
         generateGrid();
     }
 });
+
+//gradual grey button
+let greyToggle = 0;
+const greyButton = document.getElementById("greyButton");
+greyButton.addEventListener("click", () => {
+    colorToggle = 0;
+    if (greyToggle === 0) {
+        greyToggle = 1;
+        generateGrid();
+    }
+    else {
+        greyToggle = 0;
+        generateGrid();
+    }
+});
+
+
 
 input.oninput = function(){
     output.innerHTML = values[this.value];
@@ -49,12 +67,22 @@ function generateGrid() {
 
     //set block black/color with mouseover
     const block = document.querySelectorAll('.block');
-    if (colorToggle === 0) {
+    if (colorToggle === 0 && greyToggle === 0) {
         block.forEach((block) => {
             block.addEventListener("mouseover", () => {
                 block.style.backgroundColor = "black";
             });
         });  
+    }
+    else if (greyToggle === 1) {
+        block.forEach((block) => {
+            let opacityIncrease = 0.1;
+            block.addEventListener("mouseover", () => {
+                block.style.backgroundColor = "black";
+                opacityIncrease += 0.1;
+                block.style.opacity = opacityIncrease;
+            });
+        });
     }
     else {
         block.forEach((block) => {
